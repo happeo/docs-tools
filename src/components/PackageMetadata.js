@@ -60,7 +60,14 @@ const DependenciesList = ({ dependencies = {} }) => {
 
 const PackageMetadata = ({ pkg }) => {
   if (!pkg) return null;
-  const { name, version, license, repository, homepage, dependencies } = pkg;
+  const {
+    name,
+    version,
+    license,
+    repository = {},
+    homepage,
+    dependencies
+  } = pkg;
   return (
     <MetadataWrapper>
       <MetadataField title="Name" value={<Pre>{name}</Pre>} />
