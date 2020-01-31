@@ -83,7 +83,7 @@ const PackageMetadata = ({ pkg }) => {
             )}
             {pkg.repository && (
               <li>
-                <a href={pkg.homepage}>README</a>
+                <a href={pkg.repository}>Source</a>
               </li>
             )}
           </ul>
