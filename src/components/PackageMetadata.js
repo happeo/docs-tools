@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-// IMPORTANT!
-// In the docs thing we currently cannot use components that are in the library, so no typography or color packages..
-
 const MetadataWrapper = styled.div`
   background: #bec4d038;
   padding: 32px;
@@ -63,27 +60,25 @@ const DependenciesList = ({ dependencies = {} }) => {
 
 const PackageMetadata = ({ pkg }) => {
   if (!pkg) return null;
+  const { name, version, license, repository, homepage, dependencies } = pkg;
   return (
     <MetadataWrapper>
-      <MetadataField title="Name" value={<Pre>{pkg.name}</Pre>} />
-      <MetadataField title="Latest" value={pkg.version} />
-      <MetadataField title="License" value={pkg.license} />
-      <MetadataField
-        title="Installation"
-        value={<Pre>yarn add {pkg.name}</Pre>}
-      />
+      <MetadataField title="Name" value={<Pre>{name}</Pre>} />
+      <MetadataField title="Latest" value={version} />
+      <MetadataField title="License" value={license} />
+      <MetadataField title="Installation" value={<Pre>yarn add {name}</Pre>} />
       <MetadataField
         title="Links"
         value={
           <ul>
-            {pkg.homepage && (
+            {homepage && (
               <li>
-                <a href={pkg.homepage}>README</a>
+                <a href={homepage}>README</a>
               </li>
             )}
-            {pkg.repository && (
+            {repository.url && (
               <li>
-                <a href={pkg.repository}>Source</a>
+                <a href={repository.url}>Source</a>
               </li>
             )}
           </ul>
@@ -91,10 +86,8 @@ const PackageMetadata = ({ pkg }) => {
       />
 
       <MetadataField
-        title={`Dependencies (${
-          Object.entries(pkg.dependencies || {}).length
-        })`}
-        value={<DependenciesList dependencies={pkg.dependencies} />}
+        title={`Dependencies (${Object.entries(dependencies || {}).length})`}
+        value={<DependenciesList dependencies={dependencies} />}
       />
     </MetadataWrapper>
   );
