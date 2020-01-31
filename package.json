@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Some components for documenting Happeo UI Kit in MDX, written in React.",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "public": true,
   "author": "Happeo Oy",
   "contributors": [
     "Perttu Ristimella <perttu.ristimella@happeo.com>"
   ],
   "scripts": {
-    "build": "BABEL_ENV=production babel src -d dist"
+    "build": "BABEL_ENV=production babel src -d dist",
+    "prebuild": "rm -r dist",
+    "prepublish": "npm run build"
   },
   "repository": "happeo/docs-tools",
   "license": "MIT",
