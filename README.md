@@ -4,11 +4,11 @@ Some handy components for documenting Happeo UI Kit in MDX, written in React.
 
 ## List of components
 
-### Metadata
+### PackageMetadata
 
 ```js
 import pkg from "../package.json";
-<Metadata pkg={pkg} />
+<PackageMetadata pkg={pkg} />
 ```
 
 
