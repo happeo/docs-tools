@@ -1,6 +1,6 @@
 {
   "name": "@happeo/docs-tools",
-  "version": "1.0.0",
+  "version": "1.0.1-rc.0",
   "description": "Some components for documenting Happeo UI Kit in MDX, written in React.",
   "main": "dist/index.js",
   "module": "src/index.js",
